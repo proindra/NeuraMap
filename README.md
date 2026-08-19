@@ -123,11 +123,48 @@ flowchart TD
     G --> H["📊 7. Model Evaluation"]
 
     subgraph EVAL[" "]
-        direction LR
-        H1["Accuracy"]
-        H2["Precision / Recall"]
-        H3["F1 Score"]
-        H4["RMSE / MAE"]
+        direction TB
+
+        subgraph EVSUP["Supervised"]
+            direction TB
+
+            subgraph EVREG["Regression"]
+                direction LR
+                H4["RMSE"]
+                H4B["MAE"]
+                H4C["R² Score"]
+                H4D["MSE"]
+            end
+
+            subgraph EVCLF["Classification"]
+                direction LR
+                H1["Accuracy"]
+                H2["Precision / Recall"]
+                H3["F1 Score"]
+                H5["ROC-AUC"]
+                H6["Confusion Matrix"]
+            end
+        end
+
+        subgraph EVUNS["Unsupervised"]
+            direction LR
+            U1["Silhouette Score"]
+            U2["Davies-Bouldin Index"]
+            U3["Inertia / WCSS"]
+        end
+
+        subgraph EVSEMI["Semi-Supervised"]
+            direction LR
+            SM1["Accuracy on Labeled Subset"]
+            SM2["Pseudo-Label Confidence"]
+        end
+
+        subgraph EVRL["Reinforcement"]
+            direction LR
+            RLE1["Cumulative Reward"]
+            RLE2["Average Return"]
+            RLE3["Convergence Rate"]
+        end
     end
     H --> EVAL
 
@@ -147,11 +184,11 @@ flowchart TD
 
     class A root
     class B,C,D,E,F,G,H,I,J,K stage
-    class C1,C2,C3,C4,D1,D2,D3,D4,E1,E2,E3,H1,H2,H3,H4 sub
-    class SUP,CONT,CAT,REG,RG1,RG2,CLF,CF1,CF2,CF3,CF4,CF5 supervised
-    class UNS,TNA,CLU,CL1,CL2,CL3 unsupervised
-    class SEMI,SNA,S1,S2,S3 semi
-    class RL,RNA,RE1,RE2,RE3 rl
+    class C1,C2,C3,C4,D1,D2,D3,D4,E1,E2,E3 sub
+    class SUP,CONT,CAT,REG,RG1,RG2,CLF,CF1,CF2,CF3,CF4,CF5,H1,H2,H3,H4,H4B,H4C,H4D,H5,H6 supervised
+    class UNS,TNA,CLU,CL1,CL2,CL3,U1,U2,U3 unsupervised
+    class SEMI,SNA,S1,S2,S3,SM1,SM2 semi
+    class RL,RNA,RE1,RE2,RE3,RLE1,RLE2,RLE3 rl
     class RG3,CF6 bagging
     class RG4,RG5,RG6,CF7,CF8,CF9 boosting
 ```
