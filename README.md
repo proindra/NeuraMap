@@ -55,23 +55,43 @@ flowchart TD
 
         SUP["Supervised Learning"]
         UNS["Unsupervised Learning"]
+        SEMI["Semi-Supervised Learning"]
+        RL["Reinforcement Learning"]
 
         SUP --> CONT["Continuous Target"]
         SUP --> CAT["Categorical Target"]
         UNS --> TNA["Target Not Available"]
+        SEMI --> SNA["Few Labeled + Many Unlabeled"]
+        RL --> RNA["Reward-based Learning"]
 
         CONT --> REG["Regression"]
         CAT --> CLF["Classification"]
         TNA --> CLU["Clustering"]
 
+        subgraph SEMIA[" "]
+            direction LR
+            S1["Self-Training"]
+            S2["Label Propagation"]
+            S3["Semi-Supervised SVM"]
+        end
+        SNA --> SEMIA
+
+        subgraph RLA[" "]
+            direction LR
+            RE1["Q-Learning"]
+            RE2["Deep Q-Network"]
+            RE3["Policy Gradient"]
+        end
+        RNA --> RLA
+
         subgraph REGA[" "]
             direction LR
             RG1["Linear Regression"]
             RG2["Polynomial Regression"]
-            RG3["Random Forest"]
-            RG4["AdaBoost"]
-            RG5["Gradient Boost"]
-            RG6["XGBoost"]
+            RG3["🎒 Bagging: Random Forest"]
+            RG4["🚀 Boosting: AdaBoost"]
+            RG5["🚀 Boosting: Gradient Boost"]
+            RG6["🚀 Boosting: XGBoost"]
         end
         REG --> REGA
 
@@ -82,10 +102,10 @@ flowchart TD
             CF3["Naive Bayes"]
             CF4["KNN"]
             CF5["Decision Tree"]
-            CF6["Random Forest"]
-            CF7["AdaBoost"]
-            CF8["Gradient Boost"]
-            CF9["XGBoost"]
+            CF6["🎒 Bagging: Random Forest"]
+            CF7["🚀 Boosting: AdaBoost"]
+            CF8["🚀 Boosting: Gradient Boost"]
+            CF9["🚀 Boosting: XGBoost"]
         end
         CLF --> CLFA
 
@@ -120,12 +140,20 @@ flowchart TD
     classDef root fill:#000,stroke:#8E2DE2,stroke-width:3px,color:#fff,font-weight:bold,rx:20,ry:20
     classDef supervised fill:#1a1a2e,stroke:#E53935,stroke-width:1.5px,color:#fff,rx:6,ry:6
     classDef unsupervised fill:#1a1a2e,stroke:#1E88E5,stroke-width:1.5px,color:#fff,rx:6,ry:6
+    classDef bagging fill:#1a2e1a,stroke:#43A047,stroke-width:2px,color:#fff,font-weight:bold,rx:6,ry:6
+    classDef boosting fill:#2e2410,stroke:#FB8C00,stroke-width:2px,color:#fff,font-weight:bold,rx:6,ry:6
+    classDef semi fill:#1a1a2e,stroke:#8E24AA,stroke-width:1.5px,color:#fff,rx:6,ry:6
+    classDef rl fill:#1a1a2e,stroke:#00897B,stroke-width:1.5px,color:#fff,rx:6,ry:6
 
     class A root
     class B,C,D,E,F,G,H,I,J,K stage
     class C1,C2,C3,C4,D1,D2,D3,D4,E1,E2,E3,H1,H2,H3,H4 sub
-    class SUP,CONT,CAT,REG,RG1,RG2,RG3,RG4,RG5,RG6,CLF,CF1,CF2,CF3,CF4,CF5,CF6,CF7,CF8,CF9 supervised
+    class SUP,CONT,CAT,REG,RG1,RG2,CLF,CF1,CF2,CF3,CF4,CF5 supervised
     class UNS,TNA,CLU,CL1,CL2,CL3 unsupervised
+    class SEMI,SNA,S1,S2,S3 semi
+    class RL,RNA,RE1,RE2,RE3 rl
+    class RG3,CF6 bagging
+    class RG4,RG5,RG6,CF7,CF8,CF9 boosting
 ```
 
 <br/>
