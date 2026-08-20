@@ -18,12 +18,12 @@
 ## 🗺️ The Pipeline
 ```mermaid
 flowchart TD
-    A(["📊 DATA"]) --> STR["📐 Structured Data\n(tables, numbers)"]
-    A --> UNS["📝 Unstructured Data\n(text, documents, speech)"]
+    A(["📊 DATA"]) --> STR["Structured Data\n(tables, numbers)"]
+    A --> UNS["Unstructured Data\n(text, documents, speech)"]
 
     %% ======================= STRUCTURED DATA PATH =======================
-    STR --> B["📥 1. Data Collection"]
-    B --> C["🧹 2. Data Preparation"]
+    STR --> B["1. Data Collection"]
+    B --> C["2. Data Preparation"]
 
     subgraph PREP[" "]
         direction LR
@@ -34,7 +34,7 @@ flowchart TD
     end
     C --> PREP
 
-    PREP --> D["🔍 3. EDA — Exploratory Data Analysis"]
+    PREP --> D["3. EDA — Exploratory Data Analysis"]
 
     subgraph EDA[" "]
         direction LR
@@ -45,7 +45,7 @@ flowchart TD
     end
     D --> EDA
 
-    EDA --> E["🛠️ 4. Feature Engineering"]
+    EDA --> E["4. Feature Engineering"]
 
     subgraph FE[" "]
         direction LR
@@ -55,17 +55,17 @@ flowchart TD
     end
     E --> FE
 
-    FE --> F["🤖 5. Choose ML | DL Model"]
+    FE --> F["5. Choose ML | DL Model"]
 
-    F --> G["🏋️ 6. Model Training"]
-    G --> H["📊 7. Model Evaluation"]
+    F --> G["6. Model Training"]
+    G --> H["7. Model Evaluation"]
 
-    H --> I["🎛️ 8. Hyperparameter Tuning"]
-    I --> J["🔮 9. Prediction"]
-    J --> K["🚀 10. Deployment & Monitoring"]
+    H --> I["8. Hyperparameter Tuning"]
+    I --> J["9. Prediction"]
+    J --> K["10. Deployment & Monitoring"]
 
     %% ======================= UNSTRUCTURED DATA / NLP PATH =======================
-    UNS --> NLP["📝 NLP"]
+    UNS --> NLP["NLP"]
 
     NLP --> TPREP["Text Preparation"]
     NLP --> TEDA["Text EDA"]
