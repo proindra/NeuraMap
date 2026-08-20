@@ -7,8 +7,11 @@
 ![Made%20with](https://img.shields.io/badge/Made%20with-%E2%9C%A8-black?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-MIT-informational?style=for-the-badge)
 
-</div>
 
+**Deep dive:** [Machine Learning Workflow](https://github.com/proindra/ML-WorkFlow/blob/main/MachineLearningWorkFlow.md)
+**&** [Deep Learning Workflow](https://github.com/proindra/ML-WorkFlow/blob/main/DeepLearningWorkFlow.md)
+
+</div>
 <br/>
 
 ## 🗺️ The Pipeline
@@ -51,78 +54,9 @@ flowchart TD
     end
     E --> FE
 
-    FE --> F["🤖 5. Choose ML Model"]
+    FE --> F["🤖 5. Choose ML/DL Model"]
 
-    subgraph MODEL[" "]
-        direction TB
-
-        SUP["Supervised Learning"]
-        UNSL["Unsupervised Learning"]
-        SEMI["Semi-Supervised Learning"]
-        RL["Reinforcement Learning"]
-
-        SUP --> CONT["Continuous Target"]
-        SUP --> CAT["Categorical Target"]
-        UNSL --> TNA["Target Not Available"]
-        SEMI --> SNA["Few Labeled + Many Unlabeled"]
-        RL --> RNA["Reward-based Learning"]
-
-        CONT --> REG["Regression"]
-        CAT --> CLF["Classification"]
-        TNA --> CLU["Clustering"]
-
-        subgraph SEMIA[" "]
-            direction LR
-            S1["Self-Training"]
-            S2["Label Propagation"]
-            S3["Semi-Supervised SVM"]
-        end
-        SNA --> SEMIA
-
-        subgraph RLA[" "]
-            direction LR
-            RE1["Q-Learning"]
-            RE2["Deep Q-Network"]
-            RE3["Policy Gradient"]
-        end
-        RNA --> RLA
-
-        subgraph REGA[" "]
-            direction LR
-            RG1["Linear Regression"]
-            RG2["Polynomial Regression"]
-            RG3["🎒 Bagging: Random Forest"]
-            RG4["🚀 Boosting: AdaBoost"]
-            RG5["🚀 Boosting: Gradient Boost"]
-            RG6["🚀 Boosting: XGBoost"]
-        end
-        REG --> REGA
-
-        subgraph CLFA[" "]
-            direction LR
-            CF1["Logistic Regression"]
-            CF2["SVM"]
-            CF3["Naive Bayes"]
-            CF4["KNN"]
-            CF5["Decision Tree"]
-            CF6["🎒 Bagging: Random Forest"]
-            CF7["🚀 Boosting: AdaBoost"]
-            CF8["🚀 Boosting: Gradient Boost"]
-            CF9["🚀 Boosting: XGBoost"]
-        end
-        CLF --> CLFA
-
-        subgraph CLUA[" "]
-            direction LR
-            CL1["K-Means"]
-            CL2["Hierarchical"]
-            CL3["DBSCAN"]
-        end
-        CLU --> CLUA
-    end
-    F --> MODEL
-
-    MODEL --> G["🏋️ 6. Model Training"]
+    F --> G["🏋️ 6. Model Training"]
     G --> H["📊 7. Model Evaluation"]
 
     subgraph EVAL[" "]
