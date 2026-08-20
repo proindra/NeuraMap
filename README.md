@@ -10,6 +10,7 @@
 
 **Deep dive:** [Machine Learning Workflow](https://github.com/proindra/ML-WorkFlow/blob/main/MachineLearningWorkFlow.md)
 **&** [Deep Learning Workflow](https://github.com/proindra/ML-WorkFlow/blob/main/DeepLearningWorkFlow.md)
+**Evaluation:** [ML Model Evaluation](https://github.com/proindra/ML-WorkFlow/blob/main/MLModelEvaluation.md)
 
 </div>
 <br/>
@@ -17,7 +18,7 @@
 ## 🗺️ The Pipeline
 ```mermaid
 flowchart TD
-    A(["📊 DATA SCIENCE"]) --> STR["📐 Structured Data\n(tables, numbers)"]
+    A(["📊 DATA"]) --> STR["📐 Structured Data\n(tables, numbers)"]
     A --> UNS["📝 Unstructured Data\n(text, documents, speech)"]
 
     %% ======================= STRUCTURED DATA PATH =======================
@@ -54,58 +55,12 @@ flowchart TD
     end
     E --> FE
 
-    FE --> F["🤖 5. Choose ML/DL Model"]
+    FE --> F["🤖 5. Choose ML | DL Model"]
 
     F --> G["🏋️ 6. Model Training"]
     G --> H["📊 7. Model Evaluation"]
 
-    subgraph EVAL[" "]
-        direction TB
-
-        subgraph EVSUP["Supervised"]
-            direction TB
-
-            subgraph EVREG["Regression"]
-                direction LR
-                H4["RMSE"]
-                H4B["MAE"]
-                H4C["R² Score"]
-                H4D["MSE"]
-            end
-
-            subgraph EVCLF["Classification"]
-                direction LR
-                H1["Accuracy"]
-                H2["Precision / Recall"]
-                H3["F1 Score"]
-                H5["ROC-AUC"]
-                H6["Confusion Matrix"]
-            end
-        end
-
-        subgraph EVUNS["Unsupervised"]
-            direction LR
-            U1["Silhouette Score"]
-            U2["Davies-Bouldin Index"]
-            U3["Inertia / WCSS"]
-        end
-
-        subgraph EVSEMI["Semi-Supervised"]
-            direction LR
-            SM1["Accuracy on Labeled Subset"]
-            SM2["Pseudo-Label Confidence"]
-        end
-
-        subgraph EVRL["Reinforcement"]
-            direction LR
-            RLE1["Cumulative Reward"]
-            RLE2["Average Return"]
-            RLE3["Convergence Rate"]
-        end
-    end
-    H --> EVAL
-
-    EVAL --> I["🎛️ 8. Hyperparameter Tuning"]
+    H --> I["🎛️ 8. Hyperparameter Tuning"]
     I --> J["🔮 9. Prediction"]
     J --> K["🚀 10. Deployment & Monitoring"]
 
@@ -144,7 +99,7 @@ flowchart TD
     end
     FREP --> FREPA
 
-    FREPA --> NLPMODEL["ML / NLP Model"]
+    FREPA --> NLPMODEL["ML | DL | NLP Model"]
 
 
     classDef stage fill:#4A00E0,stroke:#8E2DE2,stroke-width:2px,color:#fff,font-weight:bold,rx:10,ry:10
