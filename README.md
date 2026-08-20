@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:8E2DE2,100:4A00E0&height=200&section=header&text=ML%20WorkFlow&fontSize=42&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=From%20raw%20data%20to%20deployed%20intelligence&descAlignY=58&descSize=16" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:8E2DE2,100:4A00E0&height=200&section=header&text=NeuraMap&fontSize=42&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=From%20raw%20data%20to%20deployed%20intelligence&descAlignY=58&descSize=16" width="100%"/>
 
 ![Python](https://img.shields.io/badge/Python-3.11-4A00E0?style=for-the-badge&logo=python&logoColor=white)
 ![Status](https://img.shields.io/badge/Status-Reference%20Map-8E2DE2?style=for-the-badge)
